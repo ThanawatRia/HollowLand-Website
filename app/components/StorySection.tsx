@@ -1,103 +1,134 @@
 'use client'
 
-import Image from 'next/image'
+import { useState, useEffect } from 'react'
 
 export default function StorySection() {
-  const storyCards = [
-    {
-      image: '/Story/Hollow_Land_Project12.png',
-      title: 'ป่าลึกลับแห่งเวทมนตร์',
-      description: 'ค้นพบป่าใหญ่อันลึกลับแห่ง Hollow Land ที่เต็มไปด้วยสิ่งมีชีวิตวิเศษ พืชเวทมนตร์ และธรรมชาติที่ซ่อนความลับแห่งยุคโบราณรอคอยให้คุณมาค้นหา',
-      subtitle: 'The Mystical Forest',
-      features: ['ป่าลึกลับ', 'สิ่งมีชีวิตวิเศษ', 'พืชเวทมนตร์']
-    },
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+
+  const storySlides = [
     {
       image: '/Story/3.png',
-      title: 'การเชื่อมโยงกับธรรมชาติ',
-      description: 'เมื่อแสงสีเขียวแห่งชีวิตส่องลงมายังป่าโบราณ นักผจญภัยใหม่จะค้นพบพลังแห่งธรรมชาติและสร้างสายใยกับป่าใหญ่ในโลกแฟนตาซีอันน่าอัศจรรย์',
-      subtitle: 'Nature\'s Connection',
-      features: ['แสงแห่งชีวิต', 'พลังธรรมชาติ', 'สายใยป่าใหญ่']
+      title: 'The Story of Hollow Land',
+      description: 'A magical realm where fairies and humans coexist in harmony'
     },
     {
       image: '/Story/4.png',
-      title: 'ชุมชนผู้พิทักษ์ป่า',
-      description: 'เข้าร่วมกับชุมชนผู้พิทักษ์ป่าที่อบอุ่น ทุกคนมีความผูกพันกับธรรมชาติและความสามารถพิเศษเป็นของตัวเอง สร้างมิตรภาพและร่วมกันปกป้องป่าแห่ง Hollow Land',
-      subtitle: 'Guardian Community',
-      features: ['ชุมชนอบอุ่น', 'ความสามารถพิเศษ', 'ปกป้องป่า']
+      title: 'Ancient Market Square',
+      description: 'Where merchants trade magical artifacts and fairy crafts'
+    },
+    {
+      image: '/Story/5.png',
+      title: 'Mystical Gardens',
+      description: 'Lush gardens where fairies tend to enchanted flowers'
+    },
+    {
+      image: '/Story/6.png',
+      title: 'Fairy Academy',
+      description: 'Where young fairies learn the ancient arts of magic'
+    },
+    {
+      image: '/Story/7.png',
+      title: 'Crystal Palace',
+      description: 'The grand palace where the fairy council meets'
+    },
+    {
+      image: '/Story/8.png',
+      title: 'Moonlit Plaza',
+      description: 'Where celebrations and magical festivals take place'
     }
   ]
 
+  useEffect(() => {
+    if (!isAutoPlaying) return
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % storySlides.length)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [isAutoPlaying, storySlides.length])
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index)
+    setIsAutoPlaying(false)
+    setTimeout(() => setIsAutoPlaying(true), 10000)
+  }
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % storySlides.length)
+    setIsAutoPlaying(false)
+    setTimeout(() => setIsAutoPlaying(true), 10000)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + storySlides.length) % storySlides.length)
+    setIsAutoPlaying(false)
+    setTimeout(() => setIsAutoPlaying(true), 10000)
+  }
+
   return (
     <section id="story" className="story-section">
-      <div className="story-background">
-        <div className="magical-particles"></div>
-        <div className="forest-overlay"></div>
-      </div>
-      
       <div className="container">
-        <div className="story-header">
-          <h2 className="section-title hollow-text hollow-glow">ตำนานแห่งป่าโบราณ</h2>
-          <p className="section-subtitle">ค้นพบเรื่องราวมหัศจรรย์ในป่าลึกลับแห่งธรรมชาติ</p>
-          <div className="story-divider">
-            <span className="divider-line"></span>
-            <span className="divider-icon">🌿</span>
-            <span className="divider-line"></span>
+        <h2 className="section-title fairy-glow">The Enchanted Tale of Hollow Land</h2>
+        <p className="section-subtitle">Journey through the mystical chapters of our fairy realm</p>
+        
+        {/* Story Carousel */}
+        <div className="story-carousel">
+          <div className="carousel-container">
+            {/* Current Slide */}
+            <div className="carousel-slide active">
+              <div className="slide-image">
+                <img 
+                  src={storySlides[currentSlide].image}
+                  alt={storySlides[currentSlide].title}
+                  className="slide-img"
+                  onLoad={() => console.log(`Image loaded: ${storySlides[currentSlide].image}`)}
+                  onError={(e) => {
+                    console.error(`Image failed to load: ${storySlides[currentSlide].image}`);
+                    e.currentTarget.style.backgroundColor = '#2a2a2a';
+                    e.currentTarget.style.color = '#fff';
+                    e.currentTarget.style.display = 'flex';
+                    e.currentTarget.style.alignItems = 'center';
+                    e.currentTarget.style.justifyContent = 'center';
+                    e.currentTarget.innerHTML = `<div style="text-align: center;"><h3>${storySlides[currentSlide].title}</h3><p>${storySlides[currentSlide].description}</p></div>`;
+                  }}
+                />
+              </div>
+            </div>
+            
+            {/* Navigation Buttons */}
+            <button className="carousel-nav prev" onClick={prevSlide}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+            </button>
+            <button className="carousel-nav next" onClick={nextSlide}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            </button>
+            
+            {/* Dots Indicator */}
+            <div className="carousel-dots">
+              {storySlides.map((_, index) => (
+                <button
+                  key={index}
+                  className={`carousel-dot ${index === currentSlide ? 'active' : ''}`}
+                  onClick={() => goToSlide(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="story-timeline">
-          {storyCards.map((card, index) => (
-            <div key={index} className={`story-timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
-              <div className="timeline-marker">
-                <div className="marker-circle"></div>
-                <div className="marker-line"></div>
-              </div>
-              
-              <div className="story-card hollow-hover">
-                <div className="card-image-container">
-                  <div className="image-overlay"></div>
-                  <Image 
-                    src={card.image}
-                    alt={card.title}
-                    width={500}
-                    height={350}
-                    loading="lazy"
-                    className="story-image"
-                  />
-                  <div className="image-glow"></div>
-                </div>
-                
-                <div className="card-content">
-                  <div className="card-header">
-                    <h3 className="card-title">{card.title}</h3>
-                    <p className="card-subtitle">{card.subtitle}</p>
-                  </div>
-                  
-                  <p className="card-description">{card.description}</p>
-                  
-                  <div className="card-features">
-                    {card.features.map((feature, featureIndex) => (
-                      <span key={featureIndex} className="feature-tag">
-                        ✨ {feature}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="card-footer">
-                    <div className="magical-border"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
+        {/* Story Call to Action */}
         <div className="story-cta">
           <div className="cta-content">
-            <h3 className="cta-title">พร้อมที่จะเริ่มการผจญภัยแล้วหรือยัง?</h3>
-            <p className="cta-description">เข้าร่วมกับเราในการสำรวจป่าลึกลับแห่ง Hollow Land</p>
-            <button className="cta-button hollow-hover">
-              เริ่มการผจญภัย 🌿
+            <h3>Begin Your Fairy Tale</h3>
+            <p>Join the magical community of Hollow Land and create your own legendary story</p>
+            <button className="story-cta-button fairy-hover">
+              Choose Your Fairy ✨
             </button>
           </div>
         </div>

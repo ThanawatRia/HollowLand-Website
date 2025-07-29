@@ -310,53 +310,316 @@ section {
 /* Story Section */
 .story-section {
     background: rgba(0, 0, 0, 0.2);
+    padding: 4rem 0;
 }
 
-.story-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+.story-section .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ff69b4;
+    margin-bottom: 3rem;
+    font-family: 'Dancing Script', cursive;
 }
 
-.story-card {
-    background: rgba(26, 26, 46, 0.8);
-    border-radius: 20px;
+/* Main Story Cover */
+.story-cover {
+    margin-bottom: 4rem;
+    border-radius: 25px;
     overflow: hidden;
-    border: 1px solid rgba(255, 215, 0, 0.2);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
-.card-image {
+.cover-image {
+    position: relative;
     width: 100%;
-    height: 250px;
+    height: 600px;
     overflow: hidden;
 }
 
-.card-image img {
+.cover-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
 }
 
-.story-card:hover .card-image img {
-    transform: scale(1.1);
+.story-cover:hover .cover-image img {
+    transform: scale(1.05);
 }
 
-.card-content {
-    padding: 1.5rem;
+.cover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(26, 26, 46, 0.3) 0%,
+        rgba(26, 26, 46, 0.7) 50%,
+        rgba(26, 26, 46, 0.9) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
 }
 
-.card-content h3 {
-    font-size: 1.5rem;
+.cover-content {
+    text-align: center;
+    color: white;
+    max-width: 600px;
+}
+
+.cover-title {
+    font-size: 3.5rem;
+    color: #ffd700;
     margin-bottom: 1rem;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.cover-subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    line-height: 1.6;
+}
+
+.cover-features {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.cover-feature {
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.cover-feature:hover {
+    background: rgba(255, 215, 0, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* City Stories */
+.city-stories {
+    margin-bottom: 4rem;
+}
+
+.stories-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
     color: #ffd700;
 }
 
-.card-content p {
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.story-item {
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    backdrop-filter: blur(15px);
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    position: relative;
+}
+
+.story-item:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+}
+
+.story-image {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+}
+
+.story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.story-item:hover .story-image img {
+    transform: scale(1.1);
+}
+
+.story-info {
+    padding: 2rem;
+    background: linear-gradient(
+        135deg,
+        rgba(26, 26, 46, 0.9) 0%,
+        rgba(16, 33, 62, 0.9) 100%
+    );
+}
+
+.story-info h4 {
+    font-size: 1.8rem;
+    color: #ffd700;
+    margin-bottom: 1rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+.story-info p {
+    font-size: 1.1rem;
     line-height: 1.6;
+    color: #e8e8f5;
     opacity: 0.9;
+}
+
+/* Story CTA */
+.story-cta {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 105, 180, 0.1));
+    border-radius: 25px;
+    padding: 3rem 2rem;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.cta-content h3 {
+    font-size: 2.5rem;
+    color: #ffd700;
+    margin-bottom: 1rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    color: #e8e8f5;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.story-cta-button {
+    background: linear-gradient(45deg, #ff69b4, #9370db);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    transition: all 0.3s ease;
+}
+
+.story-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.4);
+}
+
+/* Responsive Design for Story Section */
+@media (max-width: 768px) {
+    .cover-image {
+        height: 400px;
+    }
+    
+    .cover-title {
+        font-size: 2.5rem;
+    }
+    
+    .cover-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .cover-features {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stories-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .story-image {
+        height: 300px;
+    }
+    
+    .story-info h4 {
+        font-size: 1.5rem;
+    }
+    
+    .story-info p {
+        font-size: 1rem;
+    }
+    
+    .cta-content h3 {
+        font-size: 2rem;
+    }
+    
+    .cta-content p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cover-image {
+        height: 300px;
+    }
+    
+    .cover-title {
+        font-size: 2rem;
+    }
+    
+    .cover-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .cover-features {
+        gap: 1rem;
+    }
+    
+    .cover-feature {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .stories-title {
+        font-size: 2rem;
+    }
+    
+    .story-image {
+        height: 250px;
+    }
+    
+    .story-info {
+        padding: 1.5rem;
+    }
+    
+    .story-info h4 {
+        font-size: 1.3rem;
+    }
+    
+    .cta-content h3 {
+        font-size: 1.8rem;
+    }
+    
+    .story-cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+    }
 }
 
 /* Character Gallery Section */
@@ -806,7 +1069,6 @@ section {
         font-size: 2rem;
     }
     
-    .story-grid,
     .character-gallery {
         grid-template-columns: 1fr;
     }
