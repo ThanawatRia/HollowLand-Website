@@ -32,7 +32,7 @@ export default function StoreSection() {
 
   const handlePurchase = () => {
     // Create magical sparkle effect
-    const sparkles = []
+    const sparkles: HTMLDivElement[] = []
     for (let i = 0; i < 30; i++) {
       const sparkle = document.createElement('div')
       sparkle.style.cssText = `
