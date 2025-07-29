@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hollow Land - Fairy Roleplay FiveM</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Fairy Dust Particles -->
+    <div id="fairy-dust-container"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1 class="fairy-text">✨ Hollow Land ✨</h1>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link fairy-hover">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#story" class="nav-link fairy-hover">Story</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#houses" class="nav-link fairy-hover">Houses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#store" class="nav-link fairy-hover">Store</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="floating-fairy">🧚‍♀️</div>
+            <h1 class="hero-title fairy-glow">Welcome to Hollow Land</h1>
+            <p class="hero-subtitle">A Magical FiveM Serious Roleplay Experience</p>
+            <p class="hero-description">Step into an enchanted realm where fairies live, love, and create their own magical stories. Experience serious roleplay in a world filled with wonder and mystique.</p>
+            <button class="cta-button fairy-hover" onclick="scrollToSection('story')">
+                Begin Your Journey ✨
+            </button>
+        </div>
+        <div class="hero-background">
+            <div class="magical-orb orb-1"></div>
+            <div class="magical-orb orb-2"></div>
+            <div class="magical-orb orb-3"></div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="story-section">
+        <div class="container">
+            <h2 class="section-title fairy-glow">The Story of Hollow Land</h2>
+            <div class="story-grid">
+                <div class="story-card fairy-hover">
+                    <div class="card-image">
+                        <img src="Story/Hollow_Land_Project12.png" alt="Hollow Land Project" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3>The Beginning</h3>
+                        <p>Deep within an ancient forest lies a hidden realm where magic flows like rivers and fairies dance among the moonbeams. This is Hollow Land, a place where the impossible becomes reality.</p>
+                    </div>
+                </div>
+                <div class="story-card fairy-hover">
+                    <div class="card-image">
+                        <img src="Story/3.png" alt="Story Chapter 3" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3>The Awakening</h3>
+                        <p>As dawn breaks over the mystical landscape, new fairies emerge to discover their unique powers and forge their destinies in this enchanted world of serious roleplay.</p>
+                    </div>
+                </div>
+                <div class="story-card fairy-hover">
+                    <div class="card-image">
+                        <img src="Story/4.png" alt="Story Chapter 4" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3>The Community</h3>
+                        <p>Join a thriving community of fairy characters, each with their own stories, dreams, and magical abilities. Create lasting relationships and unforgettable memories.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Houses Section -->
+    <section id="houses" class="houses-section">
+        <div class="container">
+            <h2 class="section-title fairy-glow">Choose Your Fairy Character</h2>
+            <p class="section-subtitle">Select your magical fairy and discover their unique dwelling</p>
+            <div class="character-gallery">
+                <div class="character-card-large fairy-hover" onclick="openModal('House/7.png', 'Luna Moonwhisper')">
+                    <div class="character-image-large">
+                        <img src="House/7.png" alt="Luna Moonwhisper" loading="lazy">
+                        <div class="character-overlay">
+                            <div class="character-info-overlay">
+                                <h3 class="character-name">Luna Moonwhisper</h3>
+                                <p class="character-type">Moon Fairy</p>
+                                <div class="character-abilities-overlay">
+                                    <span class="ability">Moonbeam</span>
+                                    <span class="ability">Night Vision</span>
+                                    <span class="ability">Dream Walk</span>
+                                </div>
+                                <div class="view-details">Click to view full details ✨</div>
+                            </div>
+                        </div>
+                        <div class="character-glow-large"></div>
+                    </div>
+                </div>
+                
+                <div class="character-card-large fairy-hover" onclick="openModal('House/16.png', 'Stella Starweaver')">
+                    <div class="character-image-large">
+                        <img src="House/16.png" alt="Stella Starweaver" loading="lazy">
+                        <div class="character-overlay">
+                            <div class="character-info-overlay">
+                                <h3 class="character-name">Stella Starweaver</h3>
+                                <p class="character-type">Star Fairy</p>
+                                <div class="character-abilities-overlay">
+                                    <span class="ability">Starlight</span>
+                                    <span class="ability">Constellation</span>
+                                    <span class="ability">Cosmic Flight</span>
+                                </div>
+                                <div class="view-details">Click to view full details ✨</div>
+                            </div>
+                        </div>
+                        <div class="character-glow-large"></div>
+                    </div>
+                </div>
+                
+                <div class="character-card-large fairy-hover" onclick="openModal('House/17.png', 'Crystal Gemheart')">
+                    <div class="character-image-large">
+                        <img src="House/17.png" alt="Crystal Gemheart" loading="lazy">
+                        <div class="character-overlay">
+                            <div class="character-info-overlay">
+                                <h3 class="character-name">Crystal Gemheart</h3>
+                                <p class="character-type">Crystal Fairy</p>
+                                <div class="character-abilities-overlay">
+                                    <span class="ability">Crystal Shield</span>
+                                    <span class="ability">Gem Magic</span>
+                                    <span class="ability">Earth Bond</span>
+                                </div>
+                                <div class="view-details">Click to view full details ✨</div>
+                            </div>
+                        </div>
+                        <div class="character-glow-large"></div>
+                    </div>
+                </div>
+                
+                <div class="character-card-large fairy-hover" onclick="openModal('House/18.png', 'Flora Greenvine')">
+                    <div class="character-image-large">
+                        <img src="House/18.png" alt="Flora Greenvine" loading="lazy">
+                        <div class="character-overlay">
+                            <div class="character-info-overlay">
+                                <h3 class="character-name">Flora Greenvine</h3>
+                                <p class="character-type">Nature Fairy</p>
+                                <div class="character-abilities-overlay">
+                                    <span class="ability">Plant Growth</span>
+                                    <span class="ability">Animal Speech</span>
+                                    <span class="ability">Forest Walk</span>
+                                </div>
+                                <div class="view-details">Click to view full details ✨</div>
+                            </div>
+                        </div>
+                        <div class="character-glow-large"></div>
+                    </div>
+                </div>
+                
+                <div class="character-card-large fairy-hover" onclick="openModal('House/19.png', 'Aurora Skylight')">
+                    <div class="character-image-large">
+                        <img src="House/19.png" alt="Aurora Skylight" loading="lazy">
+                        <div class="character-overlay">
+                            <div class="character-info-overlay">
+                                <h3 class="character-name">Aurora Skylight</h3>
+                                <p class="character-type">Sky Fairy</p>
+                                <div class="character-abilities-overlay">
+                                    <span class="ability">Sky Dance</span>
+                                    <span class="ability">Wind Control</span>
+                                    <span class="ability">Aurora Burst</span>
+                                </div>
+                                <div class="view-details">Click to view full details ✨</div>
+                            </div>
+                        </div>
+                        <div class="character-glow-large"></div>
+                    </div>
+                </div>
+                
+                <div class="character-card-large fairy-hover" onclick="openModal('House/20.png', 'Shadow Mysticveil')">
+                    <div class="character-image-large">
+                        <img src="House/20.png" alt="Shadow Mysticveil" loading="lazy">
+                        <div class="character-overlay">
+                            <div class="character-info-overlay">
+                                <h3 class="character-name">Shadow Mysticveil</h3>
+                                <p class="character-type">Shadow Fairy</p>
+                                <div class="character-abilities-overlay">
+                                    <span class="ability">Shadow Step</span>
+                                    <span class="ability">Illusion</span>
+                                    <span class="ability">Mind Veil</span>
+                                </div>
+                                <div class="view-details">Click to view full details ✨</div>
+                            </div>
+                        </div>
+                        <div class="character-glow-large"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Full Image View -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <div class="modal-details">
+                    <div class="character-stats-modal">
+                        <div class="stat">
+                            <span class="stat-label">Magic:</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" id="modalMagicStat"></div>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Wisdom:</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" id="modalWisdomStat"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="select-character-btn fairy-hover">Select This Character ✨</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Store Section -->
+    <section id="store" class="store-section">
+        <div class="container">
+            <h2 class="section-title fairy-glow">Fairy Emporium</h2>
+            <p class="section-subtitle">Enhance your magical journey with premium packages</p>
+            <div class="store-grid">
+                <div class="product-card fairy-hover">
+                    <div class="product-image">
+                        <img src="Store/Monthly package.png" alt="Monthly Package" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h3>Monthly Fairy Package</h3>
+                        <p>Unlock exclusive magical abilities, special housing options, and premium cosmetics for your fairy character.</p>
+                        <div class="product-features">
+                            <ul>
+                                <li>✨ Exclusive magical spells</li>
+                                <li>🏠 Premium housing locations</li>
+                                <li>👗 Unique fairy costumes</li>
+                                <li>💫 Special flight animations</li>
+                                <li>🌟 VIP support access</li>
+                            </ul>
+                        </div>
+                        <button class="buy-button fairy-hover">Purchase Magic ✨</button>
+                    </div>
+                </div>
+                <div class="product-card fairy-hover">
+                    <div class="product-image">
+                        <img src="Store/HollowBeaste.png" alt="Hollow Beaste" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h3>Hollow Beaste Companion</h3>
+                        <p>Adopt a mystical creature companion to accompany you on your fairy adventures throughout Hollow Land.</p>
+                        <div class="product-features">
+                            <ul>
+                                <li>🐾 Loyal magical companion</li>
+                                <li>🎯 Special abilities & skills</li>
+                                <li>🌈 Customizable appearance</li>
+                                <li>⚔️ Combat assistance</li>
+                                <li>💝 Unique bonding system</li>
+                            </ul>
+                        </div>
+                        <button class="buy-button fairy-hover">Adopt Companion ✨</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="fairy-text">Hollow Land</h3>
+                    <p>Where magic meets serious roleplay</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#story" class="fairy-hover">Story</a></li>
+                        <li><a href="#houses" class="fairy-hover">Houses</a></li>
+                        <li><a href="#store" class="fairy-hover">Store</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#" class="fairy-hover">Discord</a></li>
+                        <li><a href="#" class="fairy-hover">Forums</a></li>
+                        <li><a href="#" class="fairy-hover">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hollow Land. All magical rights reserved. ✨</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
