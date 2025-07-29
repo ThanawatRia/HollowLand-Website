@@ -13,7 +13,7 @@ const handler = NextAuth({
       // เก็บข้อมูลเพิ่มเติมจาก Discord
       if (account && profile) {
         token.accessToken = account.access_token
-        // Type assertion to ensure profile has id property
+        // Type assertion to ensure profile has id property - Fixed for Vercel deployment
         const discordProfile = profile as any
         token.discordId = discordProfile.id
       }
