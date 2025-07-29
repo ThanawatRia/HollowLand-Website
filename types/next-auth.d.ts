@@ -23,4 +23,18 @@ declare module "next-auth/jwt" {
     accessToken?: string
     discordId?: string
   }
+}
+
+declare module "next-auth/providers/discord" {
+  interface DiscordProfile {
+    id: string
+    username: string
+    avatar: string
+    discriminator: string
+    public_flags: number
+    flags: number
+    locale: string
+    mfa_enabled: boolean
+    premium_type: number
+  }
 } 

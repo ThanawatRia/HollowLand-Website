@@ -11,9 +11,11 @@ const handler = NextAuth({
   callbacks: {
     async jwt({ token, account, profile }) {
       // เก็บข้อมูลเพิ่มเติมจาก Discord
-      if (account) {
+      if (account && profile) {
         token.accessToken = account.access_token
-        token.discordId = profile?.id
+        // Type assertion to ensure profile has id property
+        const discordProfile = profile as any
+        token.discordId = discordProfile.id
       }
       return token
     },
