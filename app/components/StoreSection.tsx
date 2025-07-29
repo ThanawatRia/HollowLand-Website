@@ -32,6 +32,7 @@ export default function StoreSection() {
 
   const handlePurchase = () => {
     // Create magical sparkle effect - Fixed TypeScript error for Vercel deployment
+    // Using explicit type annotation to resolve compilation issues
     const sparkles: HTMLDivElement[] = []
     for (let i = 0; i < 30; i++) {
       const sparkle = document.createElement('div')
